@@ -1,0 +1,17 @@
+name: "Workflow Actions"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker image
+        run: "docker build . -f Dockerfile.dev -t joeymaclean/kube-react"
+      - name: Test app
+        run: "docker run joeymaclean/kube-react npm run test -- --coverage"
+
