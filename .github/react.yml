@@ -6,4 +6,20 @@ on:
 
 jobs:
   build:
-  
+    strategy:
+      fail-fast: false
+      matrix:
+       node-version: 12.18.3
+       docker-dev: ./Dockerfile.dev
+       docker-prod: ./Dockerfile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Docker build
+        runs:
+          using: docker
+          image: {{matrix.docker-dev}}
+          args: "npm run test -- --coverage"
+      
