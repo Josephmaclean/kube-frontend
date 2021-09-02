@@ -1,0 +1,9 @@
+name: "Workflow Actions"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+  
