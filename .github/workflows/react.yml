@@ -13,5 +13,5 @@ jobs:
       - name: Build docker image
         run: "docker build . -f Dockerfile.dev -t joeymaclean/kube-react"
       - name: Test app
-        run: "docker run joeymaclean/kube-react npm run test -- --coverage"
+        run: "docker run joeymaclean/kube-react CI=true yarn test"
 
