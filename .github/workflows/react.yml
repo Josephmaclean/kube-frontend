@@ -16,4 +16,8 @@ jobs:
         run: "docker run joeymaclean/kube-react yarn test"
       - name: Check python version
         run: "python --version"
+      - name: Install eb cli
+        run: "pip install awsebcli"
+      - name: Check eb version
+        run: "eb --version"
 
