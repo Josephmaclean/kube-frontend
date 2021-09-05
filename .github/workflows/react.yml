@@ -29,4 +29,4 @@ jobs:
       - name: Initialize ELB
         run: "eb init -p docker docker-react --region eu-west-1"
       - name: Deploy 
-        run: (eb use test-environment && eb status test-environment && eb deploy) || eb create test-environment
+        run: (eb use Dockerreact-env && eb status Dockerreact-env && eb deploy) || eb create Dockerreact-env
